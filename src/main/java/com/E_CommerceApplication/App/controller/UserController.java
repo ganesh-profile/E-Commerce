@@ -1,5 +1,7 @@
 package com.E_CommerceApplication.App.controller;
 
+import com.E_CommerceApplication.App.DTOs.UserDTO;
+import com.E_CommerceApplication.App.DTOs.UserResponse;
 import com.E_CommerceApplication.App.service.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @SecurityRequirement(name = "E-Commerce Application")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService){
         this.userService = userService;
