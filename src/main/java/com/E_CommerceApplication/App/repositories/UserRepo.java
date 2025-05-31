@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepo extends JpaRepository<User, Long> {
+public interface UserRepo extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u JOIN FETCH u.addresses a WHERE a.addressID = ?1")
     List<User> findByAddress(Long addressId);

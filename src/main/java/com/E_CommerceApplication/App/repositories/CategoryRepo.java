@@ -1,4 +1,13 @@
 package com.E_CommerceApplication.App.repositories;
 
-public class CategoryRepo {
+import com.E_CommerceApplication.App.models.Categories;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public interface CategoryRepo extends JpaRepository<Categories, Long> {
+
+    Categories findByCategoryName(String categoryName);
+
 }
