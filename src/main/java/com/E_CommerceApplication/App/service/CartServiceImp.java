@@ -2,6 +2,8 @@ package com.E_CommerceApplication.App.service;
 
 import com.E_CommerceApplication.App.DTOs.CartDTO;
 import com.E_CommerceApplication.App.DTOs.ProductDTO;
+import com.E_CommerceApplication.App.exception.APIException;
+import com.E_CommerceApplication.App.exception.ResourceNotFoundException;
 import com.E_CommerceApplication.App.models.Cart;
 import com.E_CommerceApplication.App.models.CartItems;
 import com.E_CommerceApplication.App.models.Product;
@@ -10,6 +12,7 @@ import com.E_CommerceApplication.App.repositories.CartRepo;
 import com.E_CommerceApplication.App.repositories.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -112,7 +115,7 @@ public class CartServiceImp implements CartService{
     @Override
     public void updateProductInCarts(Long cartId, Long productId){
         Cart cart = cartRepo.findById(cartId).orElseThrow(() ->
-                new ResourseNotFoundException("Cart", "cartId", cartId));
+                new ResourceNotFoundException("Cart", "cartId", cartId));
 
         Product product = productRepo.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "productId", productId));

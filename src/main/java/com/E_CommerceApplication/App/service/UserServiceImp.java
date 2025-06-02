@@ -1,6 +1,9 @@
 package com.E_CommerceApplication.App.service;
 
 import com.E_CommerceApplication.App.DTOs.*;
+import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.exception.APIException;
+import com.E_CommerceApplication.App.exception.ResourceNotFoundException;
 import com.E_CommerceApplication.App.models.*;
 import com.E_CommerceApplication.App.repositories.AddressRepo;
 import com.E_CommerceApplication.App.repositories.RoleRepo;
@@ -128,7 +131,7 @@ public class UserServiceImp implements UserService{
     @Override
     public UserDTO getUserById(Long userId){
         User user = userRepo.findById(userId)
-                .orElseThrow(() -> new ResponseNotFoundException("User", "UserId",userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User", "UserId",userId));
     UserDTO userDTO = modelMapper.map(user,UserDTO.class);
 
     userDTO.setAddress(modelMapper.map(user.getAddresses().stream().findFirst().get(),AddressDTO.class));

@@ -2,6 +2,7 @@ package com.E_CommerceApplication.App.controller;
 
 import com.E_CommerceApplication.App.DTOs.UserDTO;
 import com.E_CommerceApplication.App.DTOs.UserResponse;
+import com.E_CommerceApplication.App.configuration.AppConstants;
 import com.E_CommerceApplication.App.service.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,8 @@ public class UserController {
     public ResponseEntity<UserResponse> getAllUsers(
             @RequestParam(name = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
             @RequestParam(name = "pageSize", defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
-            @RequestParam(name = "sortBy", defaultValue = AppConstants.SORT_USERS_BY,required = false) Integer sortBy,
-            @RequestParam(name = "sortOrder", defaultValue = AppConstants.SORT_DIR, required = false) Integer sortOrder
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.SORT_USERS_BY,required = false) String sortBy,
+            @RequestParam(name = "sortOrder", defaultValue = AppConstants.SORT_DIR, required = false) String sortOrder
     ){
         UserResponse userResponse = userService.getAllUsers(pageNumber,pageSize,sortBy,sortOrder);
 
@@ -32,15 +33,15 @@ public class UserController {
     }
 
     @GetMapping("/public/users/{userId}")
-    public ResponseEntity<UserDTO> getUser(@PathVariable Long UserId){
+    public ResponseEntity<UserDTO> getUser(@PathVariable Long userId){
         UserDTO user = userService.getUserById(userId);
         return new ResponseEntity<UserDTO>(user, HttpStatus.FOUND);
     }
 
     @PutMapping("/public/users/{userId}")
     public ResponseEntity<UserDTO> updateUSer(@RequestBody UserDTO userDTO, @PathVariable Long userId){
-        userDTO updatedUser = userService.updatedUser(userId, userDTO);
-        return new ResponseEntity<userDTO>(updatedUser, HttpStatus.OK);
+        UserDTO updatedUser = userService.updatedUser(userId, userDTO);
+        return new ResponseEntity<UserDTO>(updatedUser, HttpStatus.OK);
     }
 
     @DeleteMapping("/admin/users/{userId}")
