@@ -1,9 +1,7 @@
 package com.E_CommerceApplication.App.controller;
 
 import com.E_CommerceApplication.App.DTOs.CartDTO;
-import com.E_CommerceApplication.App.models.Cart;
 import com.E_CommerceApplication.App.service.CartService;
-import com.E_CommerceApplication.App.service.CartServiceImp;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

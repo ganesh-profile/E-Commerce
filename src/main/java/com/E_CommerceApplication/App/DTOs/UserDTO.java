@@ -15,7 +15,7 @@ public class UserDTO {
     private Long userId;
     private String firstName;
     private String lastName;
-    private String mobileNumber;
+    private int mobileNumber;
     private String email;
     private String password;
     private Set<Role> roles = new HashSet<>();

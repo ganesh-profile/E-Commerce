@@ -26,6 +26,8 @@ public class CartServiceImp implements CartService{
     private ProductRepo productRepo;
     @Autowired
     private CartItemRepo cartItemRepo;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public CartDTO addProductToCart(Long cartId, Long productId, Integer quantity){

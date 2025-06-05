@@ -18,7 +18,7 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long productId;
 
     @NotBlank
     @Size(min = 2, message = "Product name must contain 2 characters")

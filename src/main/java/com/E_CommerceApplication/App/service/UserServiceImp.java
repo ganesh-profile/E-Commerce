@@ -149,7 +149,7 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public UserDTO updateUser(Long userId, UserDTO userDTO){
+    public UserDTO updatedUser(Long userId, UserDTO userDTO){
         User user = userRepo.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("user", "userId", userId));
 
@@ -198,24 +198,25 @@ public class UserServiceImp implements UserService{
            return userDTO;
     }
 
-    @Override
-    public String deleteUser(Long userId){
-        User user = UserRepo.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
+	@Override
+	public String deleteUser(Long userId) {
+		User user = userRepo.findById(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
 
-        List<CartItems> cartItems = user.getCart().getCartItems();
-        Long cartId = user.getCart().getCartId();
+		List<CartItems> cartItems = user.getCart().getCartItems();
+		Long cartId = user.getCart().getCartId();
 
-        cartItems.forEach(item -> {
-            Long productId = item.getProduct().getProductId();
+		cartItems.forEach(item -> {
 
-            cartService.deleteProductFromCart(cartId, productId);
-        });
+			Long productId = item.getProduct().getProductId();
 
-        userRepo.delete(user);
+			cartService.deleteProductFromCart(cartId, productId);
+		});
 
-        return "User with userId" + userId + " deleted successfully!!!";
-        }
+		userRepo.delete(user);
+
+		return "User with userId " + userId + " deleted successfully!!!";
+	}
 
 
     }
