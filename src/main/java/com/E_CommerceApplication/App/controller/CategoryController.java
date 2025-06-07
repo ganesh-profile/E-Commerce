@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.E_CommerceApplication.App.DTOs.CategoryDTO;
 import com.E_CommerceApplication.App.DTOs.CategoryResponse;
-import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.config.AppConstants;
 import com.E_CommerceApplication.App.models.Categories;
 import com.E_CommerceApplication.App.service.CategoryService;
 

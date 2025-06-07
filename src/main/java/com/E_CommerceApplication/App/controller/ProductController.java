@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.E_CommerceApplication.App.DTOs.ProductDTO;
 import com.E_CommerceApplication.App.DTOs.ProductResponse;
-import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.config.AppConstants;
 import com.E_CommerceApplication.App.models.Product;
 import com.E_CommerceApplication.App.service.ProductService;
 

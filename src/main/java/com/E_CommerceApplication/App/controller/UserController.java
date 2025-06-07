@@ -2,7 +2,7 @@ package com.E_CommerceApplication.App.controller;
 
 import com.E_CommerceApplication.App.DTOs.UserDTO;
 import com.E_CommerceApplication.App.DTOs.UserResponse;
-import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.config.AppConstants;
 import com.E_CommerceApplication.App.service.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,7 @@
 package com.E_CommerceApplication.App.service;
 
 import com.E_CommerceApplication.App.DTOs.*;
-import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.config.AppConstants;
 import com.E_CommerceApplication.App.exception.APIException;
 import com.E_CommerceApplication.App.exception.ResourceNotFoundException;
 import com.E_CommerceApplication.App.models.*;

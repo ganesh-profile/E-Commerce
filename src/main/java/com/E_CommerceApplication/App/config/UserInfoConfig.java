@@ -1,20 +1,18 @@
-package com.E_CommerceApplication.App.configuration;
+package com.E_CommerceApplication.App.config;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.E_CommerceApplication.App.models.User;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserInfoConfig implements UserDetails{

@@ -2,6 +2,7 @@ package com.E_CommerceApplication.App.controller;
 
 import java.util.List;
 
+import com.E_CommerceApplication.App.DTOs.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.E_CommerceApplication.App.DTOs.OrderDTO;
 import com.E_CommerceApplication.App.DTOs.OrderResponse;
-import com.E_CommerceApplication.App.configuration.AppConstants;
+import com.E_CommerceApplication.App.config.AppConstants;
 import com.E_CommerceApplication.App.service.OrderService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

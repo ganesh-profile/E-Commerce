@@ -1,4 +1,4 @@
-package com.E_CommerceApplication.App.configuration;
+package com.E_CommerceApplication.App.config;
 
 public class AppConstants {
 

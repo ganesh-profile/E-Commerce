@@ -11,8 +11,8 @@ import java.util.Optional;
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
 
-    @Query("SELECT u FROM User u JOIN FETCH u.addresses a WHERE a.addressID = ?1")
+    @Query("SELECT u FROM User u JOIN FETCH u.addresses a WHERE a.addressId = ?1")
     List<User> findByAddress(Long addressId);
+
     Optional<User> findByEmail(String email);
-    
 }
