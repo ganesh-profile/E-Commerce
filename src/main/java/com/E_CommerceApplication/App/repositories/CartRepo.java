@@ -11,7 +11,7 @@ import java.util.List;
 public interface CartRepo extends JpaRepository<Cart, Long> {
 
     @Query("SELECT c FROM Cart c WHERE c.user.email = ?1 AND c.id = ?2")
-    Cart findByEmailAndCartId(String email, Long cartId);
+    Cart findCartByEmailAndCartId(String email, Long cartId);
 
     @Query("SELECT c from fetch c.cartItems ci join fetch ci.product p where p.id = ?1")
     List<Cart> findCartsByProductId(Long productId);

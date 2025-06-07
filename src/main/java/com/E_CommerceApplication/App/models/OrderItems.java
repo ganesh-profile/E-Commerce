@@ -26,5 +26,9 @@ public class OrderItems {
     private  Integer quantity;
     private double discount;
     private double orderedProductPrice;
+    public void add(OrderItems orderItem) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    }
 
 }
