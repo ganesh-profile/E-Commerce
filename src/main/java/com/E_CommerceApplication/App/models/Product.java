@@ -40,7 +40,7 @@ public class Product {
     private Categories category;
 
     @OneToMany(mappedBy = "product",cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
-    private List<CartItems> products = new ArrayList<>();
+    private List<CartItem> products = new ArrayList<>();
 
     @OneToMany(mappedBy = "product",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private List<OrderItems> orderItems = new ArrayList<>();

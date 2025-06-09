@@ -1,23 +1,22 @@
 package com.E_CommerceApplication.App.repositories;
 
-import com.E_CommerceApplication.App.models.CartItems;
-import com.E_CommerceApplication.App.models.Product;
+import com.E_CommerceApplication.App.models.CartItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CartItemRepo extends JpaRepository<CartItems, Long> {
+public interface CartItemRepo extends JpaRepository<CartItem, Long> {
 
-    @Query("SELECT ci.product FROM CartItem ci WHERE ci.product.id = ?1")
-    Product findProductById(Long productId);
+//    @Query("SELECT ci.product FROM CartItem ci WHERE ci.product.id = ?1")
+//    Product findProductById(Long productId);
 
 //	@Query("SELECT ci.cart FROM CartItem ci WHERE ci.product.id = ?1")
 //	List<Cart> findCartsByProductId(Long productId);
 
     @Query("SELECT ci FROM CartItem ci WHERE ci.cart.id = ?1 AND ci.product.id = ?2")
-    CartItems findCartItemByProductIdAndCartId(Long cartId, Long productId);
+    CartItem findCartItemByProductIdAndCartId(Long cartId, Long productId);
 
 //	@Query("SELECT ci.cart FROM CartItem ci WHERE ci.cart.user.email = ?1 AND ci.cart.id = ?2")
 //	Cart findCartByEmailAndCartId(String email, Integer cartId);

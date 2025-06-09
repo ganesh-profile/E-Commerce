@@ -203,7 +203,7 @@ public class UserServiceImp implements UserService{
 		User user = userRepo.findById(userId)
 				.orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
 
-		List<CartItems> cartItems = user.getCart().getCartItems();
+		List<CartItem> cartItems = user.getCart().getCartItems();
 		Long cartId = user.getCart().getCartId();
 
 		cartItems.forEach(item -> {

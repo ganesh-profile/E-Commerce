@@ -19,7 +19,7 @@ import com.E_CommerceApplication.App.DTOs.OrderResponse;
 import com.E_CommerceApplication.App.exception.APIException;
 import com.E_CommerceApplication.App.exception.ResourceNotFoundException;
 import com.E_CommerceApplication.App.models.Cart;
-import com.E_CommerceApplication.App.models.CartItems;
+import com.E_CommerceApplication.App.models.CartItem;
 import com.E_CommerceApplication.App.models.Order;
 import com.E_CommerceApplication.App.models.OrderItems;
 import com.E_CommerceApplication.App.models.Payment;
@@ -91,7 +91,7 @@ public class OrderServiceImp implements OrderService {
 
 		Order savedOrder = orderRepo.save(order);
 
-		List<CartItems> cartItems = cart.getCartItems();
+		List<CartItem> cartItems = cart.getCartItems();
 
 		if (cartItems.size() == 0) {
 			throw new APIException("Cart is empty");
@@ -99,7 +99,7 @@ public class OrderServiceImp implements OrderService {
 
 		List<Order> orderItems = new ArrayList<>();
 
-		for (CartItems cartItem : cartItems) {
+		for (CartItem cartItem : cartItems) {
 			OrderItems orderItem = new OrderItems();
 
 			orderItem.setProduct(cartItem.getProduct());

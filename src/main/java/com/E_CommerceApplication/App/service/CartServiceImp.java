@@ -5,7 +5,7 @@ import com.E_CommerceApplication.App.DTOs.ProductDTO;
 import com.E_CommerceApplication.App.exception.APIException;
 import com.E_CommerceApplication.App.exception.ResourceNotFoundException;
 import com.E_CommerceApplication.App.models.Cart;
-import com.E_CommerceApplication.App.models.CartItems;
+import com.E_CommerceApplication.App.models.CartItem;
 import com.E_CommerceApplication.App.models.Product;
 import com.E_CommerceApplication.App.repositories.CartItemRepo;
 import com.E_CommerceApplication.App.repositories.CartRepo;
@@ -38,7 +38,7 @@ public class CartServiceImp implements CartService{
         Product product = productRepo.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "productId",productId));
 
-        CartItems cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId,productId);
+        CartItem cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId,productId);
 
 
         if (cartItem != null){
@@ -54,7 +54,7 @@ public class CartServiceImp implements CartService{
             + " less than or equal to the quantity " + product.getQuantity() + ".");
         }
 
-        CartItems newCartItem = new CartItems();
+        CartItem newCartItem = new CartItem();
 
         newCartItem.setProduct(product);
         newCartItem.setCart(cart);
@@ -122,7 +122,7 @@ public class CartServiceImp implements CartService{
         Product product = productRepo.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "productId", productId));
 
-        CartItems cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
+        CartItem cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
 
         if (cartItem == null) {
             throw new APIException("Product " + product.getProductName() + " not available in the cart!!!");
@@ -155,7 +155,7 @@ public class CartServiceImp implements CartService{
                     + " less than or equal to the quantity " + product.getQuantity() + ".");
         }
 
-        CartItems cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
+        CartItem cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
 
         if (cartItem == null) {
             throw new APIException("Product " + product.getProductName() + " not available in the cart!!!");
@@ -189,7 +189,7 @@ public class CartServiceImp implements CartService{
         Cart cart = cartRepo.findById(cartId)
                 .orElseThrow(() -> new ResourceNotFoundException("Cart", "cartId", cartId));
 
-        CartItems cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
+        CartItem cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
 
         if (cartItem == null) {
             throw new ResourceNotFoundException("Product", "productId", productId);
